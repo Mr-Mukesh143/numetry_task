@@ -1,0 +1,13 @@
+package com.spring1;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class Pet {
+
+	private Integer id;
+	private String name;
+	private String color;
+	private String contact;
+	
+}

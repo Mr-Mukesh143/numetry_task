@@ -1,0 +1,38 @@
+package com.spring1;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/pets")
+public class PetController {
+
+	private PetService petService;
+
+	public ResponseEntity<List<Pet>> getPets() {
+		return new ResponseEntity<>(petService.getPet(), HttpStatus.OK);
+	}
+	@PostMapping
+	public ResponseEntity<Pet> add(@RequestBody Pet pet) {
+		return new ResponseEntity<>(petService.add(pet), HttpStatus.CREATED);
+	}
+	@PutMapping("/update")
+	public ResponseEntity<Pet> update(@RequestBody Pet pet) {
+		return new ResponseEntity<>(petService.update(pet), HttpStatus.CREATED);
+	}
+	@DeleteMapping("/pet/{id}")
+	public void delete(@PathVariable("id") Integer id) {
+		petService.delete(id);
+	}
+	
+	
+}

@@ -1,0 +1,14 @@
+package com.spring1;
+
+import java.util.List;
+
+public interface PetService {
+
+	Pet add(Pet pet);
+
+	List<Pet> getPet();
+
+	Pet update(Pet pet);
+
+	Pet addeleted(Pet pet);
+}
