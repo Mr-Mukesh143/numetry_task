@@ -1,0 +1,25 @@
+package edu.numetry.task3.qr_code;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class StudentService {
+
+	private StudentRepository studentRepository; 
+	
+	public List<StudentEntity> getStudents(){
+		return studentRepository.findAll();
+	}
+	public StudentEntity addStudent(StudentEntity studentEntity){
+		return studentRepository.save(studentEntity);
+	}
+	public StudentEntity finById(Long id){
+		return studentRepository.findById(id).orElseThrow(()-> new RuntimeException("STUDENT NOT FOUND"));
+	}
+	
+}

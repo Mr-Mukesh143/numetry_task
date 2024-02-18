@@ -1,0 +1,34 @@
+package edu.numetry.task3.qr_code;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class StudentEntity {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String firstName;
+	private String LasttName;
+	private String email;
+	private Integer mobile;
+
+	public StudentEntity(Long id, String firstName, String lasttName, String email, Integer mobile) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		LasttName = lasttName;
+		this.email = email;
+		this.mobile = mobile;
+	}
+
+}

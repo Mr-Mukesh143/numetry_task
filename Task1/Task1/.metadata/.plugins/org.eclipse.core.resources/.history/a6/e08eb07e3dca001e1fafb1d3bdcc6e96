@@ -1,0 +1,15 @@
+package com.spring1;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+public class PetController {
+
+	private PetService petService;
+	
+	public ResponseEntity<List<Pet>> getPets(){
+		new ResponseEntity<>(petService.getPet(),HttpStatus.OK);
+	}
+}

@@ -1,0 +1,23 @@
+package com.spring1;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/pets")
+public class PetController {
+
+	private PetService petService;
+	
+	public ResponseEntity<List<Pet>> getPets(){
+		return new ResponseEntity<>(petService.getPet(),HttpStatus.OK);
+	}
+	
+	public ResponseEntity<Pet> add(Pet pet){
+		return new ResponseEntity<>(petService.add(pet),HttpStatus.CREATED);
+	}
+}
